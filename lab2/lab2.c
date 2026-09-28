@@ -34,14 +34,15 @@ int main() {
         // Child exec
       } else if (pid == 0) {
 
-        if (execl(line, line, NULL) == -1) {
-          perror("execl");
-          exit(EXIT_FAILURE);
-        }
+          if (execl(line, line, NULL) == -1) {
+            perror("execl");
+            exit(EXIT_FAILURE);
+          }
       } else {
         printf("Getline failled\n");
         exit(EXIT_FAILURE);
       }
     }
+    free(line);
   }
 }
